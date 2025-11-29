@@ -206,10 +206,36 @@ print(resultedDict)
 
 ------------------------------------------------------------------------
 
-# 📎 Want More?
+var additionOfNums = addTwoNums
+additionOfNums(2,3)
 
-If you want:\
-✅ even more advanced examples (filter + reduce, map + reduce)\
-✅ performance comparison\
-✅ playground version\
-I can generate that too!
+
+Yes, you can store functions.
+But this gives you only 10% of what closures can do.
+The REAL Power of Closures (Why we need them)
+(A) Closures can capture values
+
+This is the biggest advantage.
+func makeCounter() -> () -> Int {
+    var count = 0
+    return {
+        count += 1
+        return count   // closure captures 'count'
+    }
+}
+
+let counter = makeCounter()
+print(counter()) // 1
+print(counter()) // 2
+print(counter()) // 3
+👉 A normal function cannot do this.
+👉 Only closures can remember and mutate external variables.
+Functions cannot:
+
+❌ capture values
+❌ be written inline
+❌ be concise and anonymous
+❌ be used flexibly with APIs expecting closure syntax
+❌ replace callbacks for async tasks
+
+Closures can do all of these.
