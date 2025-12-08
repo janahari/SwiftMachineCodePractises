@@ -205,7 +205,18 @@ print(resultedDict)
     processing.
 
 ------------------------------------------------------------------------
+var greeting = "Hello playground Hello"
 
+var pair:[String: Int] = [:]
+let dupStr = greeting.components(separatedBy: " ")
+var dictD:[String: Int] = [:]
+let dupliOnly = dupStr.reduce(into: [String: Int]()) { res, val in
+    res[val, default: 0] += 1
+}.reduce(into: [String]()) { partialResult, val in
+    if val.value > 1 {
+        partialResult.append(val.key)
+    }
+}
 # 📎 Want More?
 
 If you want:\
